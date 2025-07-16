@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东方烟韵</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- 登录模态框 -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-container">
+            <span class="close-modal">&times;</span>
+            <h2>用户登录</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">用户名:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div id="errorMsg" class="error-message"></div>
+                <button type="submit" class="login-btn">登录</button>
+            </form>
+        </div>
+    </div>
+
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>香烟品牌展示</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Arial', sans-serif;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                min-height: 100vh;
+                padding: 20px;
+            }
+
+            .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 20px;
+                padding: 40px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(10px);
+            }
+
+            .header {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            .title {
+                font-size: 3rem;
+                font-weight: bold;
+                background: linear-gradient(45deg, #667eea, #764ba2);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 10px;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+                color: #666;
+                margin-bottom: 20px;
+            }
+
+            .count {
+                display: inline-block;
+                background: linear-gradient(45deg, #667eea, #764ba2);
+                color: white;
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-weight: bold;
+            }
+
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+                margin-top: 30px;
+            }
+
+            .image-card {
+                background: white;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                position: relative;
+            }
+
+            .image-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            }
+
+            .image-card img {
+                width: 100%;
+                height: 250px;
+                object-fit: contain;
+                background: #f8f9fa;
+                transition: transform 0.3s ease;
+            }
+
+            .image-card:hover img {
+                transform: scale(1.05);
+            }
+
+            .image-name {
+                padding: 15px;
+                text-align: center;
+                font-weight: bold;
+                color: #333;
+                background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+                border-top: 1px solid #dee2e6;
+            }
+
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            .image-card:hover .overlay {
+                opacity: 1;
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 20px;
+                }
+
+                .title {
+                    font-size: 2rem;
+                }
+
+                .gallery {
+                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                    gap: 15px;
+                }
+
+                .image-card img {
+                    height: 200px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .gallery {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .image-card img {
+                    height: 150px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1 class="title">香烟品牌展示</h1>
+                <p class="subtitle">精选香烟品牌图片集合</p>
+                <span class="count">共 37 个品牌</span>
+            </div>
+
+            <div class="gallery">
+                <div class="image-card">
+                    <img src="黑贵.png" alt="黑贵">
+                    <div class="overlay">黑贵</div>
+                    <div class="image-name">黑贵</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="esse橘子味.jpg" alt="爱喜橘子味">
+                    <div class="overlay">爱喜橘子味</div>
+                    <div class="image-name">爱喜橘子味</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="esse葡萄味.jpg" alt="爱喜葡萄味">
+                    <div class="overlay">爱喜葡萄味</div>
+                    <div class="image-name">爱喜葡萄味</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="中华双中支.png" alt="中华双中支">
+                    <div class="overlay">中华双中支</div>
+                    <div class="image-name">中华双中支</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="中华软.png" alt="中华软">
+                    <div class="overlay">中华软</div>
+                    <div class="image-name">中华软</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="五叶神.jpg" alt="五叶神">
+                    <div class="overlay">五叶神</div>
+                    <div class="image-name">五叶神</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="南京雨花石.png" alt="南京雨花石">
+                    <div class="overlay">南京雨花石</div>
+                    <div class="image-name">南京雨花石</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="奇景.png" alt="奇景">
+                    <div class="overlay">奇景</div>
+                    <div class="image-name">奇景</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="好日子.png" alt="好日子">
+                    <div class="overlay">好日子</div>
+                    <div class="image-name">好日子</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="峡谷柔情.png" alt="峡谷柔情">
+                    <div class="overlay">峡谷柔情</div>
+                    <div class="image-name">峡谷柔情</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="灰狼.jpg" alt="灰狼">
+                    <div class="overlay">灰狼</div>
+                    <div class="image-name">灰狼</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="炫赫门.jpg" alt="炫赫门">
+                    <div class="overlay">炫赫门</div>
+                    <div class="image-name">炫赫门</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="白利群.png" alt="白利群">
+                    <div class="overlay">白利群</div>
+                    <div class="image-name">白利群</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="白红塔山.jpg" alt="白红塔山">
+                    <div class="overlay">白红塔山</div>
+                    <div class="image-name">白红塔山</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="白芙蓉王.jpg" alt="白芙蓉王">
+                    <div class="overlay">白芙蓉王</div>
+                    <div class="image-name">白芙蓉王</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="真龙.jpg" alt="真龙">
+                    <div class="overlay">真龙</div>
+                    <div class="image-name">真龙</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="硬云烟.jpg" alt="硬云烟">
+                    <div class="overlay">硬云烟</div>
+                    <div class="image-name">硬云烟</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="硬双喜.png" alt="硬双喜">
+                    <div class="overlay">硬双喜</div>
+                    <div class="image-name">硬双喜</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="硬珍品.jpg" alt="硬珍品">
+                    <div class="overlay">硬珍品</div>
+                    <div class="image-name">硬珍品</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="红利群.jpg" alt="红利群">
+                    <div class="overlay">红利群</div>
+                    <div class="image-name">红利群</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="红南京.png" alt="红南京">
+                    <div class="overlay">红南京</div>
+                    <div class="image-name">红南京</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="红牡丹.png" alt="红牡丹">
+                    <div class="overlay">红牡丹</div>
+                    <div class="image-name">红牡丹</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="芙蓉王.jpg" alt="芙蓉王">
+                    <div class="overlay">芙蓉王</div>
+                    <div class="image-name">芙蓉王</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="荷花出口版.png" alt="荷花出口版">
+                    <div class="overlay">荷花出口版</div>
+                    <div class="image-name">荷花出口版</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="荷花细支.png" alt="荷花细支">
+                    <div class="overlay">荷花细支</div>
+                    <div class="image-name">荷花细支</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="莲香双喜.jpg" alt="莲香双喜">
+                    <div class="overlay">莲香双喜</div>
+                    <div class="image-name">莲香双喜</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="蓝利群.jpg" alt="蓝利群">
+                    <div class="overlay">蓝利群</div>
+                    <div class="image-name">蓝利群</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="蓝楼.jpg" alt="蓝楼">
+                    <div class="overlay">蓝楼</div>
+                    <div class="image-name">蓝楼</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="软云烟.jpg" alt="软云烟">
+                    <div class="overlay">软云烟</div>
+                    <div class="image-name">软云烟</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="软双喜.jpg" alt="软双喜">
+                    <div class="overlay">软双喜</div>
+                    <div class="image-name">软双喜</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="中华硬.png" alt="硬中华">
+                    <div class="overlay">硬中华</div>
+                    <div class="image-name">硬中华</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="软玉溪.png" alt="玉溪">
+                    <div class="overlay">玉溪</div>
+                    <div class="image-name">玉溪</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="金红塔山.jpg" alt="金红塔山">
+                    <div class="overlay">金红塔山</div>
+                    <div class="image-name">金红塔山</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="金陵十二钗.png" alt="金陵十二钗">
+                    <div class="overlay">金陵十二钗</div>
+                    <div class="image-name">金陵十二钗</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="钻石荷花.png" alt="钻石荷花">
+                    <div class="overlay">钻石荷花</div>
+                    <div class="image-name">钻石荷花</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="雅香金.jpg" alt="雅香金">
+                    <div class="overlay">雅香金</div>
+                    <div class="image-name">雅香金</div>
+                </div>
+
+                <div class="image-card">
+                    <img src="黑利群.jpg" alt="黑利群">
+                    <div class="overlay">黑利群</div>
+                    <div class="image-name">黑利群</div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    </html>
+
+
+    <div class="health-warning">
+        <h3>健康忠告</h3>
+        <p>吸烟有害健康，本网站内容不构成任何吸烟建议，请遵守当地控烟法律法规。</p>
+    </div>
+    <div class="copyright"></div>
+    </div>
+    </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

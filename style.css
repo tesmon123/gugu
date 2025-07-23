@@ -67,7 +67,17 @@ header::after {
     /* 可选背景色 */
     font-size: 14px;
 }
-
+.additional-text {
+    position: absolute;
+    bottom: 40px; /* 调整这个值来控制位置 */
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.5); /* 可选背景色 */
+    font-size: 14px;
+}
 .logo {
     font-size: 3rem;
     color: var(--primary-color);

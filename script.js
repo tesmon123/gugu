@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // 简单的前端验证（实际应用中应该使用后端验证）
         const validUsers = {
             'admin': 'password123',
-            'user': '123456',
+            'User': '123456',
             'guest': 'guest123'
         };
 
